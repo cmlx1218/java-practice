@@ -87,7 +87,7 @@ public class BasicTest {
 
         student.entrySet().stream().forEach(System.out::println);
 
-        String[] names = {"xx","ss","ioi","sss"};
+        String[] names = {"xx","ss","ioi","sss","ss"};
         Arrays.asList(names).stream().forEach(System.out::println);
 
         //TODO 7、skip  跳过前几个
@@ -97,7 +97,8 @@ public class BasicTest {
         //TODO 8、concat  组合流
         Stream.concat(Arrays.stream(names).limit(3),Arrays.stream(names).skip(1)).forEach(System.out::println);
 
-
+        //TODO 9、distinct  去重
+        Arrays.stream(names).distinct().collect(Collectors.toList()).forEach(System.out::println);
 
     }
 
