@@ -1,5 +1,7 @@
 package com.tt.java.streampractice.stream;
 
+import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.Maps;
 import com.tt.java.streampractice.stream.dto.Student;
 
 import java.util.*;
@@ -96,7 +98,39 @@ public class PracticeTest {
         Map<Boolean, List<Student>> collect6 = students.stream().collect(Collectors.partitioningBy(student -> "武汉大学".equals(student.getSchool())));
         System.out.println(collect6);
 
+        //TODO 7、排序 sorted
+        Map<Integer, String> map = ImmutableMap.of(1, "zq", 2, "cmlx", 3, "zzr", 4, "xxx", 5, "ooo");
+        System.out.println("原始的map：" + map);
+        System.out.println("key降序：" + sortByKey(map, true, 2));
+        System.out.println("key升序：" + sortByKey(map, false, 2));
+        System.out.println("value降序：" + sortByValue(map, true, 2));
+        System.out.println("value升序：" + sortByValue(map, false, 2));
+    }
 
+
+    private static <K, V extends Comparable<? super V>> Map<K, V> sortByValue(Map<K, V> map, boolean isDesc, int limit) {
+        Map<K, V> result = Maps.newLinkedHashMap();
+        if (isDesc) {
+            map.entrySet().stream().sorted(Map.Entry.<K, V>comparingByValue().reversed()).limit(limit)
+                    .forEach(e -> result.put(e.getKey(), e.getValue()));
+        } else {
+            map.entrySet().stream().sorted(Map.Entry.<K, V>comparingByValue())
+                    .forEachOrdered(e -> result.put(e.getKey(), e.getValue()));
+        }
+
+        return result;
+    }
+
+    private static <K extends Comparable<? super K>, V> Map<K, V> sortByKey(Map<K, V> map, boolean isDesc, int limit) {
+        Map<K, V> result = Maps.newLinkedHashMap();
+        if (isDesc) {
+            map.entrySet().stream().sorted(Map.Entry.<K, V>comparingByKey().reversed()).limit(limit)
+                    .forEachOrdered(e -> result.put(e.getKey(), e.getValue()));
+        } else {
+            map.entrySet().stream().sorted(Map.Entry.<K, V>comparingByKey())
+                    .forEachOrdered(e -> result.put(e.getKey(), e.getValue()));
+        }
+        return result;
     }
 
 }

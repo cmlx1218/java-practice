@@ -16,6 +16,7 @@
         <java.version>1.8</java.version>
         <version.springboot>2.2.6.RELEASE</version.springboot>
         <version.lombok>1.18.12</version.lombok>
+        <version.fastjson>1.2.58</version.fastjson>
     </properties>
 
     <dependencies>
@@ -32,6 +33,14 @@
             <artifactId>lombok</artifactId>
             <version>${version.lombok}</version>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>${version.fastjson}</version>
+        </dependency>
+
 
     </dependencies>
 
