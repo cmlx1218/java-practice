@@ -3,7 +3,6 @@ package com.tt.java.streampractice.stream;
 import com.alibaba.fastjson.JSONArray;
 import com.tt.java.streampractice.stream.dto.VoteOptionDto;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
