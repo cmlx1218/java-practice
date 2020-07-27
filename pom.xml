@@ -11,6 +11,7 @@
 
     <modules>
         <module>stream-practice</module>
+        <module>designmode-practice</module>
     </modules>
 
     <properties>
@@ -18,6 +19,7 @@
         <version.springboot>2.2.6.RELEASE</version.springboot>
         <version.lombok>1.18.12</version.lombok>
         <version.fastjson>1.2.58</version.fastjson>
+        <version.commons>2.6</version.commons>
     </properties>
 
     <dependencies>
@@ -40,6 +42,11 @@
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
             <version>${version.fastjson}</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-lang</groupId>
+            <artifactId>commons-lang</artifactId>
+            <version>${version.commons}</version>
         </dependency>
 
     </dependencies>
