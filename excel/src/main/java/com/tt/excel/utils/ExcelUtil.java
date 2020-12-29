@@ -133,7 +133,7 @@ public class ExcelUtil {
             fileStream = new FileInputStream(filePath);
             ExcelListener excelListener = new ExcelListener();
             EasyExcelFactory.readBySax(fileStream, sheet, excelListener);
-            List<Object> datas = excelListener.getDatas();
+            List<Object> datas = excelListener.getDataList();
             List<T> result = new ArrayList<>();
             List<String> keys = (List<String>) datas.get(0);
             for (int i = 1; i < datas.size(); i++) {
@@ -274,7 +274,7 @@ public class ExcelUtil {
     @Setter
     class ExcelListener extends AnalysisEventListener {
 
-        private List<Object> datas = new ArrayList<>();
+        private List<Object> dataList = new ArrayList<>();
 
         /**
          * 逐行解析
@@ -285,7 +285,7 @@ public class ExcelUtil {
         @Override
         public void invoke(Object object, AnalysisContext context) {
             if (object != null) {
-                datas.add(object);
+                dataList.add(object);
             }
         }
 
