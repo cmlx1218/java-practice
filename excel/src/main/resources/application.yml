@@ -1,0 +1,6 @@
+server:
+  port: 3184
+
+spring:
+  application:
+    name: excel
